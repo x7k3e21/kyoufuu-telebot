@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "node -r dotenv/config index.js",
+    "release": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/x7k3e21/kyoufuu-telebot.git"
   },
   "author": "x7k3e21",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/x7k3e21/kyoufuu-telebot/issues"
   },
@@ -19,5 +19,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "grammy": "^1.25.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
   }
 }

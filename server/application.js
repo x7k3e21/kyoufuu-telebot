@@ -7,8 +7,8 @@ module.exports.application = class {
 
         this.application = express();
 
-        this.attachMiddleware(express.json());
-        this.attachMiddleware(express.urlencoded({ extended: false }));
+        this.application.use(express.json());
+        this.application.use(express.urlencoded({ extended: false }));
     }
 
     attachMiddleware(middleware) {
