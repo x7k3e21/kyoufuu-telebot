@@ -7,7 +7,7 @@ const client = new clientModule.client(process.env.TELEGRAM_TOKEN);
 const application = new serverModule.application(process.env.SERVER_PORT);
 
 if (process.env.NODE_ENV == "production") {
-    application.attachMiddleware("/telegram/callback", client.webhookCallback());
+    application.attachMiddleware("/telegram/callback", client.webhookCallback("express"));
 }
 
 if (process.env.NODE_ENV == "debug") {
@@ -15,3 +15,11 @@ if (process.env.NODE_ENV == "debug") {
 }
 
 application.launch();
+
+process.once("SIGINT", function() {
+
+});
+
+process.once("SIGTERM", function() {
+
+});

@@ -18,7 +18,8 @@
   "homepage": "https://github.com/x7k3e21/kyoufuu-telebot#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "grammy": "^1.25.1"
+    "grammy": "^1.25.1",
+    "grammy-guard": "^0.5.0"
   },
   "devDependencies": {
     "dotenv": "^16.4.5"
