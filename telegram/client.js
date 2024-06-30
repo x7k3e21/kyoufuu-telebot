@@ -1,12 +1,17 @@
 
 const grammy = require("grammy");
 
+const grammyHydrate = require("@grammyjs/hydrate");
+
 module.exports.client = class {
     constructor(clientToken) {
         this.client = new grammy.Bot(clientToken || "");
+
+        this.client.use(grammyHydrate.hydrateContext());
+        this.client.api.config.use(grammyHydrate.hydrateApi());
         
         this.privateChat = this.client.chatType("private");
-
+        
         this.groupChat = this.client.chatType("group");
         this.supergroupChat = this.client.chatType("supergroup");
 
@@ -22,7 +27,12 @@ module.exports.client = class {
 
     attachCommand(command) {
         for (const chatType of command.allowedChats) {
-            this.chatTypes[chatType].command(command.commandAliases, command.executionGuards, command.execute);
+            if(command.executionGuards.length != 0) {
+                this.chatTypes[chatType].command(command.commandAliases, command.executionGuards, command.execute);
+            }
+            else {
+                this.chatTypes[chatType].command(command.commandAliases, command.execute);
+            }
         }
     }
 
