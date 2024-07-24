@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "debug": "node -r dotenv/config index.js",
     "release": "node index.js"
   },
@@ -24,5 +25,8 @@
   },
   "devDependencies": {
     "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
