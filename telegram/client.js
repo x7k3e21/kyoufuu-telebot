@@ -11,7 +11,7 @@ module.exports.client = class {
         this.client.api.config.use(grammyHydrate.hydrateApi());
         
         this.privateChat = this.client.chatType("private");
-        
+
         this.groupChat = this.client.chatType("group");
         this.supergroupChat = this.client.chatType("supergroup");
 

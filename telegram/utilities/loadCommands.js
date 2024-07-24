@@ -3,7 +3,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 module.exports = function (client, commandsDir) {
-    const commandsList = fs.readdirSync(commandsDir, { recursive: true });
+    const inlineCommands = path.join(commandsDir, "inline"); 
+    const slashCommands = path.join(commandsDir, "slash");
 
     for (const commandFile of commandsList) {
         if (!commandFile.endsWith(".js")) {
@@ -16,10 +17,10 @@ module.exports = function (client, commandsDir) {
     }
 }
 
-function loadInlineCommands() {
-
+function loadInlineCommands(commandsDir) {
+    const commandsList = fs.readdirSync(commandsDir, { recursive: true });
 }
 
-function loadSlashCommand() {
-    
+function loadSlashCommand(commandsDir) {
+    const commandsList = fs.readdirSync(commandsDir, { recursive: true });
 }
